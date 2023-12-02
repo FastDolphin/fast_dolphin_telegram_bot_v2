@@ -1,0 +1,42 @@
+package main
+
+import (
+	"fast_dolphin_telegram_bot/container"
+	messageUtils "fast_dolphin_telegram_bot/messages"
+	"fast_dolphin_telegram_bot/src/handlers"
+	commonUtils "fast_dolphin_telegram_bot/src/utils"
+	tgbotapi "github.com/go-telegram-bot-api/telegram-bot-api"
+)
+
+func main() {
+	di := container.CreateContainer()
+
+	container.MustInvoke(di, func(
+		bot *tgbotapi.BotAPI,
+		botHandlers *handlers.BotHandlers,
+		config *commonUtils.Config,
+	) {
+		messagesStruct, err := messageUtils.LoadMessages(config.MessagesPath)
+		if err != nil {
+			panic(err)
+		}
+
+		// Setup update configuration and channel
+		updateConfig := tgbotapi.NewUpdate(0)
+		updateConfig.Timeout = 60
+		updates, _ := bot.GetUpdatesChan(updateConfig)
+
+		// Listen for updates and handle commands
+		for update := range updates {
+			if update.Message == nil {
+				continue
+			}
+
+			switch update.Message.Command() {
+			case "start":
+				botHandlers.StartHandler(bot, update, config, messagesStruct)
+				// Add other command cases as needed
+			}
+		}
+	})
+}
