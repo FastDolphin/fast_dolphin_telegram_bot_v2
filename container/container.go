@@ -4,20 +4,15 @@ import (
 	"fast_dolphin_telegram_bot/src/handlers"
 	"fast_dolphin_telegram_bot/src/utils"
 	"fmt"
+	tgbotapi "github.com/go-telegram-bot-api/telegram-bot-api"
 	"go.uber.org/dig"
 )
 
 func CreateContainer() *dig.Container {
 	di := dig.New()
 	loadConfig(di)
-
-	must(di.Provide(func(cfg *utils.Config) *handlers.BotHandlers {
-		return &handlers.BotHandlers{
-			StartHandler: handlers.Start, // Make sure this matches the new signature
-			// Initialize other handlers here
-		}
-	}))
-
+	loadBotAPI(di)
+	loadHandlers(di)
 	return di
 }
 
@@ -34,4 +29,23 @@ func must(err error) {
 
 func loadConfig(container *dig.Container) {
 	must(container.Provide(utils.New))
+}
+
+func loadBotAPI(container *dig.Container) {
+	must(container.Provide(func(cfg *utils.Config) (*tgbotapi.BotAPI, error) {
+		bot, err := tgbotapi.NewBotAPI(cfg.Token)
+		if err != nil {
+			return nil, err
+		}
+		return bot, nil
+	}))
+}
+
+func loadHandlers(container *dig.Container) {
+	must(container.Provide(func(cfg *utils.Config) *handlers.BotHandlers {
+		return &handlers.BotHandlers{
+			StartHandler: handlers.Start,
+			// Initialize other handlers here
+		}
+	}))
 }
