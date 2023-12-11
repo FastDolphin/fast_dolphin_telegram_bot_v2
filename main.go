@@ -5,6 +5,7 @@ import (
 	messageUtils "fast_dolphin_telegram_bot/messages"
 	"fast_dolphin_telegram_bot/src/handlers"
 	commonUtils "fast_dolphin_telegram_bot/src/utils"
+
 	tgbotapi "github.com/go-telegram-bot-api/telegram-bot-api"
 )
 
@@ -35,7 +36,11 @@ func main() {
 			switch update.Message.Command() {
 			case "start":
 				botHandlers.StartHandler(bot, update, config, messagesStruct)
+			case "menu":
+				botHandlers.SendMenuHandler(bot, update, config, messagesStruct)
 				// Add other command cases as needed
+				// default:
+				// 	botHandlers.StartHandler(bot, update, config, messagesStruct)
 			}
 		}
 	})
