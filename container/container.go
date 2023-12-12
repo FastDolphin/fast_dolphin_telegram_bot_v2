@@ -4,6 +4,7 @@ import (
 	"fast_dolphin_telegram_bot/src/handlers"
 	"fast_dolphin_telegram_bot/src/utils"
 	"fmt"
+
 	tgbotapi "github.com/go-telegram-bot-api/telegram-bot-api"
 	"go.uber.org/dig"
 )
@@ -44,7 +45,8 @@ func loadBotAPI(container *dig.Container) {
 func loadHandlers(container *dig.Container) {
 	must(container.Provide(func(cfg *utils.Config) *handlers.BotHandlers {
 		return &handlers.BotHandlers{
-			StartHandler: handlers.Start,
+			StartHandler:    handlers.Start,
+			SendMenuHandler: handlers.SendMenu,
 			// Initialize other handlers here
 		}
 	}))

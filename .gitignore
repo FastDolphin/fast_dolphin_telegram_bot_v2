@@ -1,2 +1,5 @@
 /fast_dolphin_telegram_bot
 /.env
+.vscode
+tmp
+__debug*

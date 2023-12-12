@@ -1,11 +1,12 @@
 package utils
 
 import (
-	"github.com/joho/godotenv"
 	"log"
 	"os"
 	"regexp"
 	"strings"
+
+	"github.com/joho/godotenv"
 )
 
 type Config struct {
