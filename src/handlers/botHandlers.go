@@ -10,4 +10,5 @@ import (
 type BotHandlers struct {
 	StartHandler    func(bot *tgbotapi.BotAPI, update tgbotapi.Update, config *utils.Config, messages *messageUtils.Messages)
 	SendMenuHandler func(bot *tgbotapi.BotAPI, update tgbotapi.Update, config *utils.Config, messages *messageUtils.Messages)
+	ReadLogsHandler func(bot *tgbotapi.BotAPI, update tgbotapi.Update, config *utils.Config, messages *messageUtils.Messages)
 }
