@@ -45,10 +45,11 @@ func loadBotAPI(container *dig.Container) {
 func loadHandlers(container *dig.Container) {
 	must(container.Provide(func(cfg *utils.Config) *handlers.BotHandlers {
 		return &handlers.BotHandlers{
-			StartHandler:    handlers.Start,
-			SendMenuHandler: handlers.SendMenu,
-			ReadLogsHandler: handlers.ReadLogs,
-			GetIdHandler:    handlers.GetId,
+			StartHandler:      handlers.Start,
+			SendMenuHandler:   handlers.SendMenu,
+			ReadLogsHandler:   handlers.ReadLogs,
+			DescGroupsHandler: handlers.DescGroups,
+			GetIdHandler:      handlers.GetId,
 			// Initialize other handlers here
 		}
 	}))
