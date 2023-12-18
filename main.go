@@ -40,6 +40,8 @@ func main() {
 				botHandlers.SendMenuHandler(bot, update, config, messagesStruct)
 			case "read_logs":
 				botHandlers.ReadLogsHandler(bot, update, config, messagesStruct)
+			case "desc_groups":
+				botHandlers.DescGroupsHandler(bot, update, config, messagesStruct)
 			case "get_id":
 				botHandlers.GetIdHandler(bot, update, config, messagesStruct)
 				// Add other command cases as needed
