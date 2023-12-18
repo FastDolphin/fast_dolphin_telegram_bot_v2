@@ -48,6 +48,7 @@ func loadHandlers(container *dig.Container) {
 			StartHandler:      handlers.Start,
 			SendMenuHandler:   handlers.SendMenu,
 			ReadLogsHandler:   handlers.ReadLogs,
+			GetIdHandler:      handlers.GetId,
 			DescGroupsHandler: handlers.DescGroups,
 			// Initialize other handlers here
 		}

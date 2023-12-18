@@ -2,6 +2,7 @@ package messages
 
 type Messages struct {
 	StartMessage             string `json:"start_message"`
+	GetId                    string `json:"get_id"`
 	NewRequest               string `json:"new_request"`
 	NoNewRequest             string `json:"no_new_request"`
 	RequestTimeout           string `json:"request_timeout"`

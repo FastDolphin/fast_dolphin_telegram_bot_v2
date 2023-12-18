@@ -12,4 +12,5 @@ type BotHandlers struct {
 	SendMenuHandler   func(bot *tgbotapi.BotAPI, update tgbotapi.Update, config *utils.Config, messages *messageUtils.Messages)
 	ReadLogsHandler   func(bot *tgbotapi.BotAPI, update tgbotapi.Update, config *utils.Config, messages *messageUtils.Messages)
 	DescGroupsHandler func(bot *tgbotapi.BotAPI, update tgbotapi.Update, config *utils.Config, messages *messageUtils.Messages)
+	GetIdHandler      func(bot *tgbotapi.BotAPI, update tgbotapi.Update, config *utils.Config, messages *messageUtils.Messages)
 }
