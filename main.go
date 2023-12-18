@@ -38,6 +38,8 @@ func main() {
 				botHandlers.StartHandler(bot, update, config, messagesStruct)
 			case "menu":
 				botHandlers.SendMenuHandler(bot, update, config, messagesStruct)
+			case "read_logs":
+				botHandlers.ReadLogsHandler(bot, update, config, messagesStruct)
 				// Add other command cases as needed
 				// default:
 				// 	botHandlers.StartHandler(bot, update, config, messagesStruct)

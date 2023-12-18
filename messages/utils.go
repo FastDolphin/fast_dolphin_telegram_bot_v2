@@ -2,11 +2,11 @@ package messages
 
 import (
 	"encoding/json"
-	"io/ioutil"
+	"os"
 )
 
 func LoadMessages(path string) (*Messages, error) {
-	file, err := ioutil.ReadFile(path)
+	file, err := os.ReadFile(path)
 	if err != nil {
 		return nil, err
 	}

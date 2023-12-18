@@ -47,6 +47,7 @@ func loadHandlers(container *dig.Container) {
 		return &handlers.BotHandlers{
 			StartHandler:    handlers.Start,
 			SendMenuHandler: handlers.SendMenu,
+			ReadLogsHandler: handlers.ReadLogs,
 			// Initialize other handlers here
 		}
 	}))
