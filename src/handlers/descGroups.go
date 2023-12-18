@@ -14,10 +14,7 @@ func DescGroups(bot *tgbotapi.BotAPI, update tgbotapi.Update, config *utils.Conf
 	chatIdStr := fmt.Sprintf("%d", userChatID)
 
 	if utils.IsAdmin(chatIdStr) || utils.IsCoach(chatIdStr) {
-		title := messages.SwimLevelTitle
-		levels := messages.GroupsDescription
-
-		messageWithTitle := title + levels
+		messageWithTitle := messages.DescGroupMesage
 		maxMessageLength := 4096 // Assuming MAX_MESSAGE_LENGTH is 4096
 
 		dataChunks := make([]string, 0)

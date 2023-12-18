@@ -39,6 +39,7 @@ type Messages struct {
 	EnterCurrentTrainingDay  string `json:"enter_current_training_day"`
 	GroupsDescription        string `json:"groups_description"`
 	SwimLevelTitle           string `json:"swim_level_title"`
+	DescGroupMesage          string `json:"desc_groups_message"`
 	NoTrainingPlan           string `json:"no_training_plan"`
 	CalendarWeek             string `json:"calender_week"`
 	EnterDistance            string `json:"enter_distance"`
