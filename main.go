@@ -44,6 +44,8 @@ func main() {
 				botHandlers.GetIdHandler(bot, update, config, messagesStruct)
 			case "desc_groups":
 				botHandlers.DescGroupsHandler(bot, update, config, messagesStruct)
+			case "get_calender_week":
+				botHandlers.CalendarWeekHandler(bot, update, config, messagesStruct)
 				// Add other command cases as needed
 				// default:
 				// 	botHandlers.StartHandler(bot, update, config, messagesStruct)
